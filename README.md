@@ -1,4 +1,4 @@
-# Lazy::Attribute
+# Lazy Attribute
 
 TODO: Write a gem description
 
@@ -18,11 +18,25 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+In Model
+
+```ruby
+class User < ActiveRecord::Base
+
+  lazy_attribute :email
+  
+end
+```
+
+```ruby
+User['sample@email.com']
+```
+
+Will give you the user object matches with the email and will return nil if record not found
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/lazy-attribute/fork )
+1. Fork it ( https://github.com/selvachezhian/lazy-attribute/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

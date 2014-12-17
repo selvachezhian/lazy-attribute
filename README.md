@@ -39,7 +39,7 @@ Will give you the user object matches with the email and will return nil if reco
 lazy_attribute :email, :raise_error => true
 ```
 
-Will give you the user object matches with the email and will raise ```ruby ActiveRecord::RecordNotFound ``` Exception if record not found
+Will give you the user object matches with the email and will raise ``` ActiveRecord::RecordNotFound ``` Exception if record not found
 
 ## Contributing
 

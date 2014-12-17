@@ -35,6 +35,12 @@ User['sample@email.com']
 
 Will give you the user object matches with the email and will return nil if record not found
 
+```ruby
+lazy_attribute :email, :raise_error => true
+```
+
+Will give you the user object matches with the email and will raise ActiveRecord::RecordNotFound if record not found
+
 ## Contributing
 
 1. Fork it ( https://github.com/selvachezhian/lazy-attribute/fork )

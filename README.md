@@ -1,6 +1,7 @@
 # Lazy Attribute
 
-TODO: Write a gem description
+This gem provides a simple and extremely flexible way to use most frequent find_by query in a model.
+You can minimize find_by query of a particular attribute in a model using lazy attribute gem.
 
 ## Installation
 
@@ -24,7 +25,7 @@ In Model
 class User < ActiveRecord::Base
 
   lazy_attribute :email
-  
+
 end
 ```
 

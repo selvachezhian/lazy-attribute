@@ -2,7 +2,15 @@ module Lazy
   module Attribute
     module ClassMethods
 
-      def lazy_attribute(attr, options = {})
+      # Including the lazy_attribute gem to the model
+      #
+      # @param attribute [Symbol]
+      # @param [Hash] options
+      # @option options [Boolean] :raise_error (false) will raise ActiveRecord::RecordNotFoundException if the value set as true and the record not present
+      # @option options [Symbol] :key (:default) if the key parameter is not set, it will take the default as the key
+      #
+      # @return [none]
+      def lazy_attribute(attribute, options = {})
         default_options = { raise_error: false, key: :default }
         options.reverse_merge!(default_options)
 
@@ -11,13 +19,13 @@ module Lazy
           if options[:key] == :default
 
             define_method('[]') do |identifier|
-              send_dynamic_method(options, attr, identifier)
+              send_dynamic_method(options, attribute, identifier)
             end
 
           else
 
             define_method(options[:key]) do |identifier|
-              send_dynamic_method(options, attr, identifier)
+              send_dynamic_method(options, attribute, identifier)
             end
 
           end

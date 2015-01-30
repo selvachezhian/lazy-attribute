@@ -11,7 +11,7 @@ module Lazy
       #
       # @return [none]
       def lazy_attribute(attribute, options = {})
-        default_options = { raise_error: false, key: :default }
+        default_options = { raise_error: false, key: :default, create_if_not_found: false }
         options.reverse_merge!(default_options)
 
         singleton_class.instance_eval do
@@ -35,12 +35,20 @@ module Lazy
 
       private
 
-      def dynamic_find_method(raise_error = false)
-        raise_error ? 'find_by!' : 'find_by'
+      def dynamic_find_method(options)
+        if (options[:raise_error] && options[:create_if_not_found])
+          'find_or_create_by!'
+        elsif (options[:raise_error] && !options[:create_if_not_found])
+          'find_by!'
+        elsif (!options[:raise_error] && options[:create_if_not_found])
+          'find_or_create_by'
+        elsif (!options[:raise_error] && !options[:create_if_not_found])
+          'find_by'
+        end
       end
 
       def send_dynamic_method(options, attr, identifier)
-        send(dynamic_find_method(options[:raise_error]), { attr.to_sym => identifier })
+        send(dynamic_find_method(options), { attr.to_sym => identifier })
       end
 
     end

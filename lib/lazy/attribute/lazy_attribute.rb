@@ -39,13 +39,13 @@ module Lazy
       private
 
       def dynamic_find_method(options)
-        if (options[:raise_error] && options[:create_if_not_found])
+        if options[:raise_error] && options[:create_if_not_found]
           'find_or_create_by!'
-        elsif (options[:raise_error] && !options[:create_if_not_found])
+        elsif options[:raise_error] && !options[:create_if_not_found]
           'find_by!'
-        elsif (!options[:raise_error] && options[:create_if_not_found])
+        elsif !options[:raise_error] && options[:create_if_not_found]
           'find_or_create_by'
-        elsif (!options[:raise_error] && !options[:create_if_not_found])
+        elsif !options[:raise_error] && !options[:create_if_not_found]
           'find_by'
         end
       end

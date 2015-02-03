@@ -51,6 +51,21 @@ lazy_attribute :first_name, raise_error: true, key: :fn
 User.fn('first name')
 ```
 
+```ruby
+lazy_attribute :email, create_if_not_found: true
+```
+
+Will try to fetch the user object with the matched email address, if the record is not found in the db the same will be created.  If any error like validation protected the record being saved, then the new built object will be returned.
+
+```ruby
+user = User['invalid email']
+
+user.errors.message
+=> {:email=>["Please enter valid email format"]}
+```
+
+if you want the exception needs to be threw, then use the ```raise_error: true``` option
+
 ## Contributing
 
 1. Fork it ( https://github.com/selvachezhian/lazy-attribute/fork )

@@ -7,7 +7,7 @@ You can minimize find_by query of a particular attribute in a model using lazy a
 
 Add this line to your application's Gemfile:
 
-    gem 'lazy-attribute', '~> 3.0.1'
+    gem 'lazy-attribute'
 
 And then execute:
 

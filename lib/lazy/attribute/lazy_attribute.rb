@@ -51,10 +51,13 @@ module Lazy
       end
 
       def send_dynamic_method(options, attr, identifier)
-        if(options[:join_type] &&  options[:join_type].downcase.eql?('and'))
-          send(dynamic_find_method(options), "#{attr[0]} = ? AND #{attr[1]} = ?", identifier[0], identifier[1])
-        elsif(options[:join_type] &&  options[:join_type].downcase.eql?('or'))
-
+        if options[:join_type]
+          raise 'Please provide attribute as an array' unless attr.kind_of?(Array)
+          if options[:join_type].downcase.eql?('and')
+            send(dynamic_find_method(options), "#{attr[0]} = :identifier AND #{attr[1]} = :identifier", identifier: identifier)
+          elsif options[:join_type].downcase.eql?('or')
+            send(dynamic_find_method(options), "#{attr[0]} = :identifier OR #{attr[1]} = :identifier", identifier: identifier)
+          end
         else
           raise 'Please specify join_type if you want to pass the argument as array' if attr.kind_of?(Array)
           send(dynamic_find_method(options), { attr.to_sym => identifier })

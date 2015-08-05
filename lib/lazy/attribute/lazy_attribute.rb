@@ -59,7 +59,7 @@ module Lazy
             send(dynamic_find_method(options), "#{attr[0]} = :identifier OR #{attr[1]} = :identifier", identifier: identifier)
           end
         else
-          raise 'Please specify join_type if you want to pass the argument as array' if attr.kind_of?(Array)
+          raise 'Please specify join_type if you want to pass the argument as an array' if attr.kind_of?(Array)
           send(dynamic_find_method(options), { attr.to_sym => identifier })
         end
       end

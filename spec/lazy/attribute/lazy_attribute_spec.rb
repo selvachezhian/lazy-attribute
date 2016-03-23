@@ -3,8 +3,6 @@ include Lazy::Attribute::ClassMethods
 
 describe 'Lazy Attribute' do
 
-
-
   context 'Dynamic Find' do
     it 'should return find_by if no options are passed' do
       method_name = dynamic_find_method({})

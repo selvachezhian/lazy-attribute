@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/selvachezhian/lazy-attribute.svg?branch=master)](https://travis-ci.org/selvachezhian/lazy-attribute)
+
 # Lazy Attribute
 
 This gem provides a simple and extremely flexible way to use most frequent find_by query in a model.

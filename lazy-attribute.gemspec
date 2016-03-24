@@ -6,8 +6,8 @@ require 'lazy/attribute/version'
 Gem::Specification.new do |spec|
   spec.name          = 'lazy-attribute'
   spec.version       = Lazy::Attribute::VERSION
-  spec.authors       = ['Selva Chezhian']
-  spec.email         = %w(selvachezhian.labam@gmail.com)
+  spec.authors       = ['Selva Chezhian', 'Prasanna']
+  spec.email         = %w(selvachezhian.labam@gmail.com prasannacse2005@gmail.com)
   spec.summary       = %q{Minimizing find_by query for a single repeated attribute}
   spec.description   = %q{This gem provides a simple and extremely flexible way to use most frequent find_by query in a model.  You can minimize find_by query of a particular attribute in a model using lazy attribute gem.}
   spec.homepage      = 'https://github.com/selvachezhian/lazy-attribute'

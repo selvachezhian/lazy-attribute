@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/selvachezhian/lazy-attribute.svg?branch=master)](https://travis-ci.org/selvachezhian/lazy-attribute)
+[![Code Climate](https://codeclimate.com/github/selvachezhian/lazy-attribute/badges/gpa.svg)](https://codeclimate.com/github/selvachezhian/lazy-attribute)
 
 # Lazy Attribute
 
